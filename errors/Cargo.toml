@@ -1,0 +1,16 @@
+[package]
+name = "errors"
+version = "0.1.0"
+authors = ["Warren Fernandes <warren.f.fernandes@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[profile.release]
+# Immediately abort without doing any "unwinding". That is, Rust won't walk
+# back up the stack and clean up any memory since that is a lot of work.
+# Aborting on panic allows for the resulting binary to be smaller in size,
+# that's why we are setting this only on the release profile.
+panic = 'abort'
